@@ -2,17 +2,12 @@ import usePokemons from "../../hooks/usePokemons";
 import { useEffect, useState } from "react";
 import PokemonCard from "../PokemonCard";
 import styles from "./PokemonGrid.module.scss";
+import LoadingComp from "../LoadingComp";
 
-export default function PokemonGrid() {
-  const [listOfPokemons, setListOfPokemons] = useState([]);
-  const { pokemons, loading } = usePokemons();
-  useEffect(() => {
-    setListOfPokemons(pokemons);
-  });
-
+export default function PokemonGrid({ pokemons, loading }) {
   return (
     <div className={styles.grid}>
-      {listOfPokemons.map((pokemon) => (
+      {pokemons.map((pokemon) => (
         <PokemonCard key={pokemon.id} pokemon={pokemon} />
       ))}
     </div>

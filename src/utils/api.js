@@ -1,9 +1,11 @@
+import { url } from "./urls";
+
 export function getPokemon(url_id) {
   let urlToUse = "";
   if (typeof url_id === "string") {
     urlToUse = url_id;
   } else {
-    urlToUse = `https://pokeapi.co/api/v2/pokemon/${url_id}/`;
+    urlToUse = `${url}pokemon/${url_id}/`;
   }
   return fetch(urlToUse)
     .then((res) => res.json())
@@ -14,8 +16,8 @@ export function getPokemon(url_id) {
     .catch((err) => console.error(err));
 }
 
-export function getPokemonGroup() {
-  return fetch(`https://pokeapi.co/api/v2/pokemon?limit=151`)
+export function getPokemonGroup(numOfPokemons) {
+  return fetch(`${url}pokemon?limit=${numOfPokemons}`)
     .then((res) => res.json())
     .then((response) => response.results)
     .catch((err) => console.error(err));

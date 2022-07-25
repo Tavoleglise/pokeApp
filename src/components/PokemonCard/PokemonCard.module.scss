@@ -1,0 +1,22 @@
+.card {
+  position: relative;
+  display: flex;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 2px 2px 5px 4px rgba(0, 0, 0, 0.2);
+  color: #606060;
+  padding: 20px;
+}
+.id {
+  font-size: 15px;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+.name {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
