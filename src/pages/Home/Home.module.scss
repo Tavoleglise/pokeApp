@@ -1,3 +1,25 @@
 .inputContainer {
+  width: 100%;
   margin: 30px;
+  form {
+    width: 240px;
+    display: flex;
+  }
+  input {
+    height: 40px;
+    width: 50%;
+    border-radius: 20px 0 0 20px;
+    border: none;
+    &:focus {
+      border: none;
+    }
+  }
+  button {
+    background-color: rgb(142, 181, 247);
+    border: none;
+    border-radius: 0 20px 20px 0;
+    position: relative;
+    width: 30%;
+    height: 40px;
+  }
 }

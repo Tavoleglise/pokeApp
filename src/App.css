@@ -1,9 +1,8 @@
 .App {
-  text-align: center;
   display: flex;
   justify-content: center;
-  background-color: #85ffbd;
-  background-image: linear-gradient(45deg, #85ffbd 0%, #ffffff 100%);
+  background: url(https://i.imgur.com/3v5VhJ8.png);
+  /*background-image: linear-gradient(45deg, #85ffbd 0%, #ffffff 100%);*/
 }
 .App-content {
   min-height: 100vh;
@@ -13,6 +12,8 @@
   align-items: center;
   justify-content: center;*/
   font-size: calc(10px + 2vmin);
+  background-color: #edebee;
   color: white;
-  width: 1200px;
+  width: 1400px;
+  padding: 50px;
 }

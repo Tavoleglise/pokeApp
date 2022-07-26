@@ -15,7 +15,15 @@ export function getPokemon(url_id) {
     })
     .catch((err) => console.error(err));
 }
-
+export function getPokemonByName(pokemonName) {
+  return fetch(`${url}pokemon/${pokemonName}/`)
+    .then((res) => res.json())
+    .then((response) => {
+      const { name, id, types, abilities, sprites } = response;
+      return { name, id, types, abilities, sprites };
+    })
+    .catch((err) => console.error(err));
+}
 export function getPokemonGroup(numOfPokemons) {
   return fetch(`${url}pokemon?limit=${numOfPokemons}`)
     .then((res) => res.json())

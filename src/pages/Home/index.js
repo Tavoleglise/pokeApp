@@ -4,6 +4,7 @@ import styles from "./Home.module.scss";
 import PokemonGrid from "../../components/PokemonGrid";
 import usePokemons from "../../hooks/usePokemons";
 import useFilteredPokemonsByNameOrId from "../../hooks/useFilteredPokemonsByNameOrId";
+import { Link, useLocation } from "wouter";
 
 export default function Home() {
   const { pokemons, loading } = usePokemons();
@@ -12,9 +13,11 @@ export default function Home() {
     pokemonName,
     pokemons
   );
+  const [path, pushLocation] = useLocation();
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    pushLocation(`/pokemon/${pokemonName}`);
   };
 
   const handleOnChange = (event) => {
@@ -22,7 +25,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div className={styles.home}>
       <div className={styles.inputContainer}>
         <form onSubmit={handleSubmit}>
           <input
@@ -30,9 +33,10 @@ export default function Home() {
             onChange={handleOnChange}
             placeholder="Search Pokemon"
           />
+          <button type="submit">Search</button>
         </form>
       </div>
-      <PokemonGrid pokemons={filteredPokemons} />
-    </>
+      <PokemonGrid pokemons={filteredPokemons} loading={loading} />
+    </div>
   );
 }

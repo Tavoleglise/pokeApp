@@ -1,0 +1,16 @@
+.pokemonDetailPage {
+  width: 90%;
+  padding: 50px;
+  color: #060606;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: -8px 11px 60px -39px rgba(143, 143, 143, 0.75);
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  text-align: center;
+
+  .columnInfo {
+    text-align: left;
+  }
+}
