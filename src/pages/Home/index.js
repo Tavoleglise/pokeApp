@@ -3,14 +3,17 @@ import { motion } from "framer-motion";
 import styles from "./Home.module.scss";
 import PokemonGrid from "../../components/PokemonGrid";
 import usePokemons from "../../hooks/usePokemons";
-import useFilteredPokemonsByNameOrId from "../../hooks/useFilteredPokemonsByNameOrId";
+import useFilteredPokemons from "../../hooks/useFilteredPokemons";
 import { Link, useLocation } from "wouter";
+import FiltterOptions from "../../components/FilterOptions";
 
 export default function Home() {
+  const [currentType, setCurrentType] = useState("all");
   const { pokemons, loading } = usePokemons();
   const [pokemonName, setPokemonName] = useState("");
-  const { filteredPokemons } = useFilteredPokemonsByNameOrId(
+  const { filteredPokemons } = useFilteredPokemons(
     pokemonName,
+    currentType,
     pokemons
   );
   const [path, pushLocation] = useLocation();
@@ -35,6 +38,13 @@ export default function Home() {
           />
           <button type="submit">Search</button>
         </form>
+        <div>
+          {" "}
+          <label htmlFor="typeSelector" className={styles.typeLabel}>
+            Type:
+            <FiltterOptions setCurrentType={setCurrentType} />
+          </label>
+        </div>
       </div>
       <PokemonGrid pokemons={filteredPokemons} loading={loading} />
     </div>

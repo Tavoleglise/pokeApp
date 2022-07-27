@@ -10,7 +10,7 @@ export default function PokemonGrid({ pokemons, loading }) {
   return (
     <>
       {!loading ? (
-        <motion.div layout className={styles.grid}>
+        <motion.div className={styles.grid}>
           {pokemons.map((pokemon) => (
             <PokemonCard key={pokemon.id} pokemon={pokemon} />
           ))}

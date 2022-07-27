@@ -1,6 +1,8 @@
 .App {
+  font: normal 100% "Andale Mono", AndaleMono, monospace;
   display: flex;
   justify-content: center;
+
   background: url(https://i.imgur.com/3v5VhJ8.png);
   /*background-image: linear-gradient(45deg, #85ffbd 0%, #ffffff 100%);*/
 }
@@ -15,5 +17,5 @@
   background-color: #edebee;
   color: white;
   width: 1400px;
-  padding: 50px;
+  padding: 0 50px 50px 50px;
 }

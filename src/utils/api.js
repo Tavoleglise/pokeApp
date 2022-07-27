@@ -10,8 +10,8 @@ export function getPokemon(url_id) {
   return fetch(urlToUse)
     .then((res) => res.json())
     .then((response) => {
-      const { name, id, types, abilities, sprites } = response;
-      return { name, id, types, abilities, sprites };
+      const { name, id, types, abilities, sprites, stats } = response;
+      return { name, id, types, abilities, sprites, stats };
     })
     .catch((err) => console.error(err));
 }
@@ -19,8 +19,8 @@ export function getPokemonByName(pokemonName) {
   return fetch(`${url}pokemon/${pokemonName}/`)
     .then((res) => res.json())
     .then((response) => {
-      const { name, id, types, abilities, sprites } = response;
-      return { name, id, types, abilities, sprites };
+      const { name, id, types, abilities, sprites, stats } = response;
+      return { name, id, types, abilities, sprites, stats };
     })
     .catch((err) => console.error(err));
 }
@@ -29,4 +29,20 @@ export function getPokemonGroup(numOfPokemons) {
     .then((res) => res.json())
     .then((response) => response.results)
     .catch((err) => console.error(err));
+}
+
+export function getTypes() {
+  return fetch(`${url}type`).then((res) => res.json());
+}
+
+export function getEvolutions(pokemonId) {
+  return fetch(`${url}pokemon/${pokemonId}`)
+    .then((res) => res.json())
+    .then((response) =>
+      fetch(response.species.url)
+        .then((res) => res.json())
+        .then((response) =>
+          fetch(response.evolution_chain.url).then((res) => res.json())
+        )
+    );
 }
