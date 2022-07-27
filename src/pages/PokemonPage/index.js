@@ -71,7 +71,7 @@ export default function PokemonPage({ params }) {
         className={styles.pokemonStatsPage}
         e
       >
-        Stats
+        <strong>Stats</strong>
         <div className={styles.statsTable}>
           {stats
             ? stats.map((stat, index) => {
