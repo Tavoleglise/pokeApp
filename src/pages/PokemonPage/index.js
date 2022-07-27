@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getPokemon, getEvolutions } from "../../utils/api";
 import styles from "./PokemonPage.module.scss";
 import LoadingComp from "../../components/LoadingComp";
+import { useLocation } from "wouter";
 
 import colours from "../../utils/colours";
 
@@ -14,6 +15,7 @@ export default function PokemonPage({ params }) {
   const { name = "", types, abilities, stats } = pokemon;
   const [color, setColor] = useState("#fff");
   const { front_default } = sprites;
+  const [location, setLocation] = useLocation();
   useEffect(() => {
     if (types) {
       setColor(colours[types[0].type.name]);
@@ -42,7 +44,7 @@ export default function PokemonPage({ params }) {
               <small>Id: {pokemon.id}</small>
               <div className={styles.keyContainer}>
                 Types:
-                {abilities
+                {types
                   ? types.map((typeObj, index) => (
                       <small key={index} className={styles.type}>
                         {typeObj.type.name}
@@ -52,7 +54,7 @@ export default function PokemonPage({ params }) {
               </div>
               <div className={styles.keyContainer}>
                 Abilities:
-                {types
+                {abilities
                   ? abilities.map((ability, index) => (
                       <small key={index} className={styles.type}>
                         {ability.ability.name}
@@ -72,9 +74,9 @@ export default function PokemonPage({ params }) {
         Stats
         <div className={styles.statsTable}>
           {stats
-            ? stats.map((stat) => {
+            ? stats.map((stat, index) => {
                 return (
-                  <div className={styles.stat}>
+                  <div key={index} className={styles.stat}>
                     <strong>
                       {stat.stat.name.charAt(0).toUpperCase() +
                         stat.stat.name.slice(1)}

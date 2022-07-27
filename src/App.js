@@ -20,7 +20,7 @@ function App() {
           <Switch>
             <Route path="/" component={Home} />
             <Route path="/pokemon/:id" component={PokemonPage} />
-            <Route>404</Route>
+            <Route>Page not found</Route>
           </Switch>
           <Footer />
         </div>

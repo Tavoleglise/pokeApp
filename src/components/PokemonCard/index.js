@@ -11,7 +11,6 @@ export default function PokemonCard({ pokemon }) {
   useEffect(() => {
     if (pokemon.types) {
       setColor(colours[pokemon.types[0].type.name]);
-      console.log(color);
     }
   }, [pokemon]);
   return (

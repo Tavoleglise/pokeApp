@@ -1,4 +1,5 @@
 import { url } from "./urls";
+import mockPokemon from "./mockPokemon.json";
 
 export function getPokemon(url_id) {
   let urlToUse = "";
@@ -13,7 +14,10 @@ export function getPokemon(url_id) {
       const { name, id, types, abilities, sprites, stats } = response;
       return { name, id, types, abilities, sprites, stats };
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      console.error(err);
+      return mockPokemon;
+    });
 }
 export function getPokemonByName(pokemonName) {
   return fetch(`${url}pokemon/${pokemonName}/`)
@@ -22,7 +26,10 @@ export function getPokemonByName(pokemonName) {
       const { name, id, types, abilities, sprites, stats } = response;
       return { name, id, types, abilities, sprites, stats };
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      console.error(err);
+      return mockPokemon;
+    });
 }
 export function getPokemonGroup(numOfPokemons) {
   return fetch(`${url}pokemon?limit=${numOfPokemons}`)
@@ -32,7 +39,9 @@ export function getPokemonGroup(numOfPokemons) {
 }
 
 export function getTypes() {
-  return fetch(`${url}type`).then((res) => res.json());
+  return fetch(`${url}type`)
+    .then((res) => res.json())
+    .catch((err) => console.error(err));
 }
 
 export function getEvolutions(pokemonId) {
@@ -44,5 +53,6 @@ export function getEvolutions(pokemonId) {
         .then((response) =>
           fetch(response.evolution_chain.url).then((res) => res.json())
         )
-    );
+    )
+    .catch((err) => console.error(err));
 }
