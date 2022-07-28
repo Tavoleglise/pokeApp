@@ -3,6 +3,7 @@ import { getPokemon } from "./utils/api";
 
 import Home from "./pages/Home";
 import PokemonPage from "./pages/PokemonPage";
+import PageNotFound from "./pages/PageNotFound";
 
 import "./App.css";
 import { Link, Route, Switch } from "wouter";
@@ -20,7 +21,7 @@ function App() {
           <Switch>
             <Route path="/" component={Home} />
             <Route path="/pokemon/:id" component={PokemonPage} />
-            <Route>Page not found</Route>
+            <Route component={PageNotFound}></Route>
           </Switch>
           <Footer />
         </div>

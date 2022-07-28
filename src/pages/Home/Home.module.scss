@@ -1,33 +1,54 @@
-.inputContainer {
-  width: 100%;
-  margin: 30px;
-  display: grid;
-  align-items: center;
-  font: normal 14px/100% "Andale Mono", AndaleMono, monospace;
-  color: #606060;
-  .typeLabel {
-    margin-left: 30px;
-  }
-  form {
-    width: 240px;
-    display: flex;
-  }
-  input {
-    height: 40px;
-    width: 300px;
-    border: none;
+.container {
+  display: flex;
+  .inputContainer {
+    width: 100%;
+    margin: 30px;
+    display: grid;
+    align-items: center;
     font: normal 14px/100% "Andale Mono", AndaleMono, monospace;
-    &:focus {
+    color: #606060;
+    .typeLabel {
+      margin-left: 30px;
+    }
+    form {
+      width: 300px;
+      display: flex;
+      margin-bottom: 10px;
+    }
+    input {
+      height: 40px;
+      width: 300px;
       border: none;
+      font: normal 14px/100% "Andale Mono", AndaleMono, monospace;
+      &:focus {
+        border: none;
+      }
+    }
+    button {
+      background-color: #6390f0;
+      color: #fff;
+      border: none;
+      position: relative;
+      width: 30%;
+      height: 40px;
+      font: normal 14px/100% "Andale Mono", AndaleMono, monospace;
     }
   }
-  button {
-    background-color: #6390f0;
-    color: white;
-    border: none;
-    position: relative;
-    width: 30%;
-    height: 40px;
-    font: normal 14px/100% "Andale Mono", AndaleMono, monospace;
+  .selectorContainer {
+    label {
+      font: normal 14px/100% "Andale Mono", AndaleMono, monospace;
+      color: #606060;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    .selectorContainer {
+      display: flex;
+      justify-content: center;
+      margin: 10px;
+    }
   }
 }

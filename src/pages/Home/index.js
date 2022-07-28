@@ -29,17 +29,19 @@ export default function Home() {
 
   return (
     <div className={styles.home}>
-      <div className={styles.inputContainer}>
-        <form onSubmit={handleSubmit}>
-          <input
-            value={pokemonName}
-            onChange={handleOnChange}
-            placeholder="Search Pokemon"
-          />
-          <button type="submit">Search</button>
-        </form>
-        <div>
-          {" "}
+      <div className={styles.container}>
+        <div className={styles.inputContainer}>
+          <form onSubmit={handleSubmit}>
+            <input
+              value={pokemonName}
+              onChange={handleOnChange}
+              placeholder="Search Pokemon by Name or Id"
+            />
+            <button type="submit">Search</button>
+          </form>
+          <small>E.g. 'Bulbasaur' or '1'</small>
+        </div>
+        <div className={styles.selectorContainer}>
           <label htmlFor="typeSelector" className={styles.typeLabel}>
             Type:
             <FiltterOptions setCurrentType={setCurrentType} />

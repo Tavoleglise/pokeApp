@@ -1,4 +1,5 @@
 .pokemonDetailPage {
+  position: relative;
   padding: 50px;
   color: #060606;
   border-radius: 20px;
@@ -8,6 +9,16 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   align-items: center;
   text-align: center;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    border-radius: 20px;
+    border: 2px solid #fff;
+  }
 
   .columnInfo {
     text-align: left;
@@ -19,6 +30,7 @@
     margin-top: 30px;
     font-weight: 600;
     display: flex;
+    color: #fff;
     .type {
       margin-left: 10px;
       border: 1px solid;
@@ -28,9 +40,13 @@
       max-width: 200px;
     }
   }
+  img {
+    width: 240px;
+  }
 }
 
 .pokemonStatsPage {
+  position: relative;
   padding: 50px;
   color: #060606;
   border-radius: 20px;
@@ -39,6 +55,16 @@
   display: grid;
   align-items: center;
   text-align: left;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    border-radius: 20px;
+    border: 2px solid #fff;
+  }
   .statsTable {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
